@@ -3,10 +3,9 @@
     [ngStyle]="{'background-color' : note.color}"
     (mouseleave)="toggleCheck()"
     (mouseenter)="toggleCheck()"
-   [noteID]="note.id"
     >
   <div class="icon" 
-  (click)="onChecked()"
+  (click)="onChecked(note.id)"
   *ngIf="showCheck"
   >
     <i class="material-icons">check</i>

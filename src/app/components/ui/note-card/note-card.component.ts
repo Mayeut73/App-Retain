@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class NoteCardComponent implements OnInit {
 
     @Input() note = {};
+    
     //Evenement checked 
     @Output() checked = new EventEmitter();
     showCheck: boolean = false;

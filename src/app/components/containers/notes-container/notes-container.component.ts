@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NotesService } from '../../../services/notes.service';
 
 @Component({
@@ -6,9 +6,14 @@ import { NotesService } from '../../../services/notes.service';
   templateUrl: './notes-container.component.html',
   styleUrls: ['./notes-container.component.css']
 })
-export class NotesContainerComponent implements OnInit {
+export class NotesContainerComponent implements OnInit, OnDestroy {
 
-  constructor(private _notesService: NotesService) {
+
+  notes = [];
+
+
+  constructor(
+    private _notesService: NotesService) {
 
   }
 
@@ -16,7 +21,12 @@ export class NotesContainerComponent implements OnInit {
     this.getNotes();
   }
 
-  notes = [];
+
+  ngOnDestroy() {
+    console.log('destroyed');
+
+  }
+
 
   getNotes() {
     this._notesService
@@ -28,14 +38,18 @@ export class NotesContainerComponent implements OnInit {
 
 
   onNoteChecked(note, i) {
-    this.notes.splice(i, 1);
+    this._notesService
+      .delete(note.id)
+      .then(() => {
+        this.notes = this.notes.filter(n => n !== note);
+      })
   }
 
   onCreateNote(note) {
 
     var newNote = {
-      id : this.notes[this.notes.length -1].id +1,
-      title : note.title,
+      id: this.notes[this.notes.length - 1].id + 1,
+      title: note.title,
       value: note.value
     }
 

@@ -11,7 +11,8 @@ export class NotesService {
   urlNotes:string = 'http://localhost:3000/notes';
   headers = new Headers({ 'Content-Type': 'application/json' });
 
-  constructor(private _http:Http) { }
+  constructor(
+    private _http:Http) { }
 
   getNotes():Promise<Notes[]> {
     return this._http
