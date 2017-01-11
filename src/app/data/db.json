@@ -1,0 +1,34 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "title": "Chores",
+      "value": "Dont forget to clean up",
+      "color": "lighblue"
+    },
+    {
+      "id": 2,
+      "title": "Food",
+      "value": "meal prep tonight please!",
+      "color": "seagreen"
+    },
+    {
+      "id": 3,
+      "title": "Shipping Number",
+      "value": "#234654hhd88",
+      "color": "pink"
+    },
+    {
+      "title": "Yo",
+      "value": "Narvalo",
+      "color": "white",
+      "id": 4
+    },
+    {
+      "title": "Test",
+      "value": "Trop classe",
+      "color": "#AEC6CF",
+      "id": 5
+    }
+  ]
+}
